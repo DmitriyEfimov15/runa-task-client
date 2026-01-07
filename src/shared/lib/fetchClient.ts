@@ -41,6 +41,7 @@ export const fetchClient = async <T>(url: string, options?: RequestInit): Promis
 
     if (isResponseWithMessage(data)) {
       if (!response.ok) {
+        showToaster(data.message, data.statusCode);
         throw new Error(data.message);
       }
       showToaster(data.message, data.statusCode);
@@ -48,7 +49,6 @@ export const fetchClient = async <T>(url: string, options?: RequestInit): Promis
 
     return data as T;
   } catch (err: any) {
-    const message = err?.message || "Произошла неизвестная ошибка";
     throw err;
   }
 };

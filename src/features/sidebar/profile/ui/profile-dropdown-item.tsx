@@ -21,21 +21,23 @@ import { LogOut, UserCircle2 } from "lucide-react";
 import { useLogout } from "@/src/entities/auth/hooks/useLogout";
 import { useRouter } from "next/navigation";
 import { AUTH_ROUTES } from "@/src/shared/constants/routes/auth/routes";
+import { PRIVATE_ROUTES } from "@/src/shared/constants/routes/private/routes";
+import { SideBarDropdownSkeleton } from "@/src/shared/ui/sidebar-dropdown-skeleton";
 
 const ProfileDropdownItem = () => {
   const user = useUserStore(userSelector);
-  const logoutMethod = useLogout()
-  const router = useRouter()
+  const logoutMethod = useLogout();
+  const router = useRouter();
   const { isMobile } = useSidebar();
 
   if (!user) {
-    return null;
+    return <SideBarDropdownSkeleton />;
   }
 
   const handleLogout = async () => {
-    await logoutMethod.mutateAsync()
-    router.push(AUTH_ROUTES.LOGIN)
-  }
+    await logoutMethod.mutateAsync();
+    router.push(AUTH_ROUTES.LOGIN);
+  };
 
   return (
     <SidebarMenu>
@@ -58,9 +60,9 @@ const ProfileDropdownItem = () => {
               <ProfileInfo user={user} />
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => router.push(PRIVATE_ROUTES.PROFILE.path)}>
               <UserCircle2 className="mr-2 h-4 w-4" />
-              Профиль
+              {PRIVATE_ROUTES.PROFILE.title}
             </DropdownMenuItem>
             <DropdownMenuItem onClick={handleLogout}>
               <LogOut className="mr-2 h-4 w-4" />

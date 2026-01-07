@@ -1,4 +1,4 @@
-import Home from "@/src/pages/home/Home.page";
+import Home from "@/src/pages/private/home/Home.page";
 import { FC } from "react";
 
 const HomePage: FC = () => {

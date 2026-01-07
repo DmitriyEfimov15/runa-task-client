@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/src/shared/ui/card";
 import { FC } from "react";
-import VerifyEmailForm from "./verify-email-form";
+import { VerifyEmailForm } from "./verify-email-form";
 
 const VerifyEmailCard: FC = () => {
   return (

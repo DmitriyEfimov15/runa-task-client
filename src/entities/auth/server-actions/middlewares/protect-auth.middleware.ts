@@ -14,5 +14,5 @@ export async function protectAuthPages(request: NextRequest) {
 	const verifiedData = await jwtVerifyServer(tokens.accessToken)
 	if (!verifiedData) return NextResponse.next()
 
-	return nextRedirect(PRIVATE_ROUTES.HOME, request.url)
+	return nextRedirect(PRIVATE_ROUTES.HOME.path, request.url)
 }
