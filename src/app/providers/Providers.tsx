@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
 import { TProvidersProps } from "./types";
 import ProfileProvider from "./profile-provider";
+import { ThemeProvider } from "./theme-provider";
 
 const queryClient = new QueryClient();
 
@@ -12,7 +13,9 @@ const Providers: FC<TProvidersProps> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ProfileProvider>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </ProfileProvider>
       <Toaster richColors position="top-right" />
     </QueryClientProvider>

@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import { SidebarTrigger } from "./sidebar";
 import { Separator } from "./separator";
 import { getRouteTitle } from "../lib/utils/getRouteTitle";
+import { ThemeToggle } from "./theme-toggle";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -13,6 +14,9 @@ export function SiteHeader() {
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mx-2 h-4" />
         <h1 className="text-base font-medium">{pathname ? getRouteTitle(pathname) : null}</h1>
+      </div>
+      <div className="px-1">
+        <ThemeToggle />
       </div>
     </header>
   );
