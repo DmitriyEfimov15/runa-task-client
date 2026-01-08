@@ -4,7 +4,7 @@ import { protectAuthPages } from "./entities/auth/server-actions/middlewares/pro
 import { protectPrivatePages } from "./entities/auth/server-actions/middlewares/protect-private.middleware"
 
 
-export async function middleware(request: NextRequest): Promise<NextResponse> {
+export async function proxy(request: NextRequest): Promise<NextResponse> {
 	const pathname = request.nextUrl.pathname
 	if (pathname.startsWith(PUBLIC_ROUTES.AUTH)) {
 		return protectAuthPages(request)
