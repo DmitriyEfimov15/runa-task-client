@@ -1,7 +1,7 @@
 export type TSideBarContentItem = {
     title: string;
     icon: React.ComponentType;
-    url: string;
+    path: string;
 }
 
 export type TSidebarMainContentProps = {

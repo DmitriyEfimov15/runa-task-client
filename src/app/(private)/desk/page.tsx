@@ -1,7 +1,7 @@
 import { DevelopmentBoard } from "@/src/shared/ui/development-board";
 
-const Home = () => {
+const DeskPage = () => {
   return <DevelopmentBoard />;
 };
 
-export default Home;
+export default DeskPage;

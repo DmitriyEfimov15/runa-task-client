@@ -1,7 +1,8 @@
 import { DevelopmentBoard } from "@/src/shared/ui/development-board";
+import { FC } from "react";
 
-const Home = () => {
+const ReportsPage: FC = () => {
   return <DevelopmentBoard />;
 };
 
-export default Home;
+export default ReportsPage;
