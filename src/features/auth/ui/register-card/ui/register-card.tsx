@@ -1,8 +1,12 @@
+'use client'
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/src/shared/ui/card";
 import Link from "next/link";
 import { FC } from "react";
-import RegisterForm from "./register-form";
 import { AUTH_ROUTES } from "@/src/shared/constants/routes/auth/routes";
+import dynamic from "next/dynamic";
+
+const RegisterForm = dynamic(() => import("./register-form"), { ssr: false });
 
 const RegisterCard: FC = () => {
   return (

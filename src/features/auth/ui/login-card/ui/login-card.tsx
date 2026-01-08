@@ -1,8 +1,12 @@
+'use client'
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/src/shared/ui/card";
 import { FC } from "react";
-import LoginForm from "./login-form";
 import Link from "next/link";
 import { AUTH_ROUTES } from "@/src/shared/constants/routes/auth/routes";
+import dynamic from "next/dynamic";
+
+const LoginForm = dynamic(() => import("./login-form"), { ssr: false });
 
 const LoginCard: FC = () => {
   return (
@@ -16,7 +20,10 @@ const LoginCard: FC = () => {
           <Link href={AUTH_ROUTES.REGISTER} className="no-underline hover:underline">
             Еще нет аккаунта?
           </Link>
-          <Link href={AUTH_ROUTES.SEND_REQUEST_TO_CHANGE_PASSWORD} className="no-underline hover:underline">
+          <Link
+            href={AUTH_ROUTES.SEND_REQUEST_TO_CHANGE_PASSWORD}
+            className="no-underline hover:underline"
+          >
             Забыли пароль?
           </Link>
         </CardDescription>

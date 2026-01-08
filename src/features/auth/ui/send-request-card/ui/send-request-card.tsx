@@ -1,6 +1,10 @@
+"use client";
+
 import { Card, CardDescription, CardHeader } from "@/src/shared/ui/card";
+import dynamic from "next/dynamic";
 import { FC } from "react";
-import SendRequestForm from "./send-request-form";
+
+const SendRequestForm = dynamic(() => import("./send-request-form"), { ssr: false });
 
 const SendRequestCard: FC = () => {
   return (

@@ -1,6 +1,25 @@
-import ChangeAvatarForm from "@/src/features/profile-settings/avatar/ui/changeAvatar";
-import ChangeEmail from "@/src/features/profile-settings/email/ui/change-email";
-import ChangePassword from "@/src/features/profile-settings/password/ui/change-password";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const ChangeAvatarForm = dynamic(
+  () => import("@/src/features/profile-settings/avatar/ui/changeAvatar").then((mod) => mod.default),
+  { ssr: false },
+);
+
+const ChangeEmail = dynamic(
+  () => import("@/src/features/profile-settings/email/ui/change-email").then((mod) => mod.default),
+  { ssr: false },
+);
+
+const ChangePassword = dynamic(
+  () =>
+    import("@/src/features/profile-settings/password/ui/change-password").then(
+      (mod) => mod.default,
+    ),
+  { ssr: false },
+);
+
 import { Separator } from "@/src/shared/ui/separator";
 import { FC } from "react";
 
@@ -16,7 +35,7 @@ const ProfileSettings: FC = () => {
           <ChangeEmail />
         </div>
         <Separator className="my-4" />
-        
+
         <div className="md:w-100">
           <ChangePassword />
         </div>

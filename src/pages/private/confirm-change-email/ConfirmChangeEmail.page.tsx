@@ -1,5 +1,12 @@
-import ConfirmChangeEmailForm from "@/src/features/confirm-change-email/ui/confrim-change-email";
+'use client'
+
+import dynamic from "next/dynamic";
 import { FC } from "react";
+
+const ConfirmChangeEmailForm = dynamic(
+  () => import("@/src/features/confirm-change-email/ui/confrim-change-email"),
+  { ssr: false },
+);
 
 const ConfirmChangeEmail: FC = () => {
   return (

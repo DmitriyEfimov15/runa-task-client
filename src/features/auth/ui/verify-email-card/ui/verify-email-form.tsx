@@ -6,8 +6,9 @@ import { useUserStore } from "@/src/entities/auth/store/user";
 import { setUserSelector } from "@/src/entities/auth/store/selectors";
 import { OtpForm } from "@/src/shared/ui/opt-form";
 import { PRIVATE_ROUTES } from "@/src/shared/constants/routes/private/routes";
+import { FC } from "react";
 
-export const VerifyEmailForm = () => {
+const VerifyEmailForm: FC = () => {
   const params = useParams();
   const verifyEmail = useVerifyEmail();
   const setUser = useUserStore(setUserSelector);
@@ -31,3 +32,5 @@ export const VerifyEmailForm = () => {
 
   return <OtpForm onSubmit={handleSubmit} loading={verifyEmail.isPending} />;
 };
+
+export default VerifyEmailForm;

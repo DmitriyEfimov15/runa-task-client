@@ -1,6 +1,10 @@
+'use client'
+
 import { Card, CardContent, CardHeader } from "@/src/shared/ui/card";
+import dynamic from "next/dynamic";
 import { FC } from "react";
-import { VerifyEmailForm } from "./verify-email-form";
+
+const VerifyEmailForm = dynamic(() => import("./verify-email-form"), { ssr: false });
 
 const VerifyEmailCard: FC = () => {
   return (
