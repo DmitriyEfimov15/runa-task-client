@@ -1,8 +1,7 @@
 "use client";
 
+import { useGetProfile } from "@/src/entities/auth/hooks/useGetProfile";
 import { useLoginUser } from "@/src/entities/auth/hooks/useLoginUser";
-import { setUserSelector } from "@/src/entities/auth/store/selectors";
-import { useUserStore } from "@/src/entities/auth/store/user";
 import { ILoginForm } from "@/src/entities/auth/types";
 import { PRIVATE_ROUTES } from "@/src/shared/constants/routes/private/routes";
 import { cn } from "@/src/shared/lib/utils";
@@ -20,13 +19,13 @@ const LoginForm = () => {
     formState: { errors, isValid },
   } = useForm<ILoginForm>();
 
-  const setUser = useUserStore(setUserSelector);
   const loginMethod = useLoginUser();
   const router = useRouter();
+  const { refetch } = useGetProfile();
 
   const onSubmit = async (data: ILoginForm) => {
-    const { user } = await loginMethod.mutateAsync(data);
-    setUser(user);
+    await loginMethod.mutateAsync(data);
+    refetch()
     router.push(PRIVATE_ROUTES.HOME.path);
   };
 

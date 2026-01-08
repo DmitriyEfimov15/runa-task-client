@@ -12,6 +12,7 @@ export const useGetProfile = () => {
     queryKey: ["profile"],
     queryFn: getProfile,
     retry: false,
+    enabled: false
   });
 
   useEffect(() => {

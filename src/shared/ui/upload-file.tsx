@@ -11,6 +11,7 @@ type UploadFileProps = {
   accept?: string;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  loading?: boolean;
 };
 
 export const UploadFile: FC<UploadFileProps> = ({
@@ -20,6 +21,7 @@ export const UploadFile: FC<UploadFileProps> = ({
   accept,
   onOpenChange,
   open,
+  loading,
 }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [files, setFiles] = useState<File[]>([]);
@@ -47,13 +49,13 @@ export const UploadFile: FC<UploadFileProps> = ({
     if (onOpenChange) {
       onOpenChange(open);
     }
-    resetFiles(open)
+    resetFiles(open);
   };
 
   const handleSubmit = async (files: File[]) => {
-    await onSubmit(files)
-    setFiles([])
-  }
+    await onSubmit(files);
+    setFiles([]);
+  };
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -102,7 +104,11 @@ export const UploadFile: FC<UploadFileProps> = ({
             </ul>
           )}
 
-          <Button disabled={files.length === 0} onClick={() => handleSubmit(files)}>
+          <Button
+            disabled={files.length === 0}
+            onClick={() => handleSubmit(files)}
+            loading={loading}
+          >
             Загрузить
           </Button>
         </div>

@@ -8,7 +8,6 @@ import {
   IVerifyEmailPayload,
   IVerifyEmailResponse,
   RegisterUserResponse,
-  TLoginResponse,
 } from "../types";
 import { TRequestChangeEmailForm } from "@/src/features/profile-settings/email/model/types";
 import { IResponseWithNotification } from "@/src/shared/lib/types/responseWithNotificaton";
@@ -38,7 +37,7 @@ export const getProfile = () => {
 };
 
 export const loginUser = (data: ILoginForm) => {
-  return fetchClient<TLoginResponse>("/auth/login", {
+  return fetchClient<void>("/auth/login", {
     method: "POST",
     body: JSON.stringify(data),
   });

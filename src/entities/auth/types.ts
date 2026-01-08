@@ -42,8 +42,6 @@ export interface IGetProfileResponse {
   user: IUser;
 }
 
-export type TLoginResponse = IGetProfileResponse;
-
 export interface ILoginForm {
   email: string;
   password: string;
