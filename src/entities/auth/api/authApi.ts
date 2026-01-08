@@ -14,6 +14,7 @@ import {
 import { TRequestChangeEmailForm } from "@/src/features/profile-settings/email/model/types";
 import { IResponseWithNotification } from "@/src/shared/lib/types/responseWithNotificaton";
 import { IOtpFormValues } from "@/src/shared/ui/opt-form";
+import { TChangePasswordForAuthorizedForm } from "@/src/features/profile-settings/password/model/types";
 
 export const registerUser = (data: IRegisterForm) => {
   return fetchClient<RegisterUserResponse>("/auth/register", {
@@ -73,6 +74,13 @@ export const requestChangeEmail = (data: TRequestChangeEmailForm) => {
 export const changeEmail = (data: IOtpFormValues) => {
   return fetchClient<IResponseWithNotification>("/auth/change-email", {
     method: "POST",
+    body: JSON.stringify(data)
+  })
+}
+
+export const changePasswordForAuthorized = (data: TChangePasswordForAuthorizedForm) => {
+  return fetchClient<IResponseWithNotification>("/auth/change-password-for-authorized", {
+    method: "PATCH",
     body: JSON.stringify(data)
   })
 }

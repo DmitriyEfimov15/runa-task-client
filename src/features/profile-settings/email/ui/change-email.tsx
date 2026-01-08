@@ -27,14 +27,14 @@ const ChangeEmail: FC = () => {
   return (
     <div>
       <h1 className="text-xl">Смена почты</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="w-100 flex flex-col gap-2 my-2.5">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col gap-2 my-2.5">
         <FormField error={errors.email}>
           <Input type="email" placeholder="Новая почта" {...register("email", { required: FORM_CONSTANTS.REQUIRED })} />
         </FormField>
         <FormField error={errors.currentPassword}>
           <PasswordInput placeholder="Текущий пароль" {...register("currentPassword", { required: FORM_CONSTANTS.REQUIRED })} />
         </FormField>
-        <Button type="submit" className="w-44" disabled={!isValid}>Сменить</Button>
+        <Button type="submit" className="w-full" disabled={!isValid}>Сменить</Button>
       </form>
     </div>
   );

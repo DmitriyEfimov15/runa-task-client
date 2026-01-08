@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { userSelector } from "@/src/entities/auth/store/selectors";
 import { useUserStore } from "@/src/entities/auth/store/user";
@@ -13,9 +13,11 @@ const ChangeAvatarForm: FC = () => {
   }
   return (
     <div>
-      <div className="w-64 h-64 flex flex-col gap-2 items-center">
-        <ProfileAvatarImage user={user} />
-        <Button className="w-full">Cменить аватар</Button>
+      <div className="flex flex-col gap-2 items-center">
+        <div className="w-64 h-64">
+          <ProfileAvatarImage user={user} />
+        </div>
+        <Button className="w-64">Cменить аватар</Button>
       </div>
     </div>
   );
