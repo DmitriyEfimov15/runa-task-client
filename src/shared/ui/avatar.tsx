@@ -41,7 +41,7 @@ function AvatarFallback({
 
 function ProfileAvatarImage({ user }: { user: IUser }) {
   return (
-    <Avatar className="h-full w-full rounded-lg grayscale">
+    <Avatar className="h-full w-full rounded-lg">
       <AvatarImage src={user?.avatarUrl ?? ""} alt={user?.email} />
       <AvatarFallback className="rounded-lg">{user?.email[0].toLocaleUpperCase()}</AvatarFallback>
     </Avatar>

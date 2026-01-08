@@ -5,7 +5,6 @@ import {
   ILoginForm,
   IRegisterForm,
   ISendRequestForm,
-  IUser,
   IVerifyEmailPayload,
   IVerifyEmailResponse,
   RegisterUserResponse,
@@ -15,6 +14,7 @@ import { TRequestChangeEmailForm } from "@/src/features/profile-settings/email/m
 import { IResponseWithNotification } from "@/src/shared/lib/types/responseWithNotificaton";
 import { IOtpFormValues } from "@/src/shared/ui/opt-form";
 import { TChangePasswordForAuthorizedForm } from "@/src/features/profile-settings/password/model/types";
+import { TChangeAvatar } from "@/src/features/profile-settings/avatar/model/types";
 
 export const registerUser = (data: IRegisterForm) => {
   return fetchClient<RegisterUserResponse>("/auth/register", {
@@ -82,5 +82,15 @@ export const changePasswordForAuthorized = (data: TChangePasswordForAuthorizedFo
   return fetchClient<IResponseWithNotification>("/auth/change-password-for-authorized", {
     method: "PATCH",
     body: JSON.stringify(data)
+  })
+}
+
+export const changeAvatar = (data: TChangeAvatar) => {
+  const formData = new FormData()
+  formData.append("avatar", data.avatar)
+
+  return fetchClient<IResponseWithNotification>("/user/avatar", {
+    method: "POST",
+    body: formData,
   })
 }

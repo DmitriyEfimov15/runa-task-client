@@ -5,11 +5,13 @@ import { isResponseWithMessage } from "./typeguards";
 export const fetchClient = async <T>(url: string, options?: RequestInit): Promise<T> => {
   const showToaster = useToasterStore.getState().showToaster;
 
+  const isFormData = options?.body instanceof FormData;
+
   try {
     let response = await fetch(`${API_URL}${url}`, {
       credentials: "include",
       headers: {
-        "Content-Type": "application/json",
+        ...(isFormData ? {} : { "Content-Type": "application/json" }),
         ...options?.headers,
       },
       ...options,
@@ -26,11 +28,10 @@ export const fetchClient = async <T>(url: string, options?: RequestInit): Promis
         throw new Error("Сессия истекла");
       }
 
-      // повторяем исходный запрос
       response = await fetch(`${API_URL}${url}`, {
         credentials: "include",
         headers: {
-          "Content-Type": "application/json",
+          ...(isFormData ? {} : { "Content-Type": "application/json" }),
           ...options?.headers,
         },
         ...options,
@@ -40,15 +41,14 @@ export const fetchClient = async <T>(url: string, options?: RequestInit): Promis
     const data = await response.json().catch(() => ({}));
 
     if (isResponseWithMessage(data)) {
+      showToaster(data.message, data.statusCode);
       if (!response.ok) {
-        showToaster(data.message, data.statusCode);
         throw new Error(data.message);
       }
-      showToaster(data.message, data.statusCode);
     }
 
     return data as T;
-  } catch (err: any) {
+  } catch (err) {
     throw err;
   }
 };
