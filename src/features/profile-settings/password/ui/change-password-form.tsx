@@ -9,6 +9,8 @@ import { cn } from "@/src/shared/lib/utils";
 import { passwordRules } from "@/src/shared/lib/validators/passwordRules";
 import FormError from "@/src/shared/ui/formError";
 import { Button } from "@/src/shared/ui/button";
+import { useRouter } from "next/navigation";
+import { AUTH_ROUTES } from "@/src/shared/constants/routes/auth/routes";
 
 const ChangePasswordForm: FC<TChangePasswordFormProps> = ({ isLoading, onSubmit }) => {
   const {
@@ -20,11 +22,13 @@ const ChangePasswordForm: FC<TChangePasswordFormProps> = ({ isLoading, onSubmit 
   } = useForm<TChangePasswordForAuthorizedForm>({
     mode: "onChange",
   });
+  const router = useRouter()
 
   const newPassword = watch("newPassword");
   const handleFormSubmit = async (data: TChangePasswordForAuthorizedForm) => {
     await onSubmit(data);
     reset();
+    router.push(AUTH_ROUTES.LOGIN);
   };
 
   return (
