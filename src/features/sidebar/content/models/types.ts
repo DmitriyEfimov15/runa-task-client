@@ -1,9 +1,9 @@
 export type TSideBarContentItem = {
-    title: string;
-    icon: React.ComponentType;
-    path: string;
-}
+  title: string;
+  icon: React.ComponentType;
+  path: string;
+};
 
 export type TSidebarMainContentProps = {
-    items: TSideBarContentItem[];
-}
+  items: TSideBarContentItem[];
+};

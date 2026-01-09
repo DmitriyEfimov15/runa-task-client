@@ -12,29 +12,38 @@ import { useRequestChangeEmail } from "@/src/entities/auth/hooks/useRequestChang
 import { useRouter } from "next/navigation";
 
 const ChangeEmail: FC = () => {
-    const router = useRouter()
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<TRequestChangeEmailForm>({ mode: "onChange" });
-  const requestChangeEmailMethod = useRequestChangeEmail()
+  const requestChangeEmailMethod = useRequestChangeEmail();
 
   const onSubmit = async (data: TRequestChangeEmailForm) => {
-    await requestChangeEmailMethod.mutateAsync(data)
-    router.push('/confirm-change-email')
+    await requestChangeEmailMethod.mutateAsync(data);
+    router.push("/confirm-change-email");
   };
   return (
     <div>
       <h1 className="text-xl">Смена почты</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col gap-2 my-2.5">
         <FormField error={errors.email}>
-          <Input type="email" placeholder="Новая почта" {...register("email", { required: FORM_CONSTANTS.REQUIRED })} />
+          <Input
+            type="email"
+            placeholder="Новая почта"
+            {...register("email", { required: FORM_CONSTANTS.REQUIRED })}
+          />
         </FormField>
         <FormField error={errors.currentPassword}>
-          <PasswordInput placeholder="Текущий пароль" {...register("currentPassword", { required: FORM_CONSTANTS.REQUIRED })} />
+          <PasswordInput
+            placeholder="Текущий пароль"
+            {...register("currentPassword", { required: FORM_CONSTANTS.REQUIRED })}
+          />
         </FormField>
-        <Button type="submit" className="w-full" disabled={!isValid}>Сменить</Button>
+        <Button type="submit" className="w-full" disabled={!isValid}>
+          Сменить
+        </Button>
       </form>
     </div>
   );

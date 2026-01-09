@@ -1,3 +1,3 @@
 export type TChangeAvatar = {
-    avatar: File
-}
+  avatar: File;
+};

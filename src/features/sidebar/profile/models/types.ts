@@ -1,7 +1,6 @@
-import { IUser } from "@/src/entities/auth/types"
-
+import { IUser } from "@/src/entities/auth/types";
 
 export type TProfileInfoProps = {
-    user: IUser;
-    isShowIcon?: boolean
-}
+  user: IUser;
+  isShowIcon?: boolean;
+};

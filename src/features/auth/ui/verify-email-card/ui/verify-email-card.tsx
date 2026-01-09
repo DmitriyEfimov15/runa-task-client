@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Card, CardContent, CardHeader } from "@/src/shared/ui/card";
 import dynamic from "next/dynamic";

@@ -25,7 +25,7 @@ const LoginForm = () => {
 
   const onSubmit = async (data: ILoginForm) => {
     await loginMethod.mutateAsync(data);
-    refetch()
+    refetch();
     router.push(PRIVATE_ROUTES.HOME.path);
   };
 

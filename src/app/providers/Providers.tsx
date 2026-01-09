@@ -13,9 +13,7 @@ const Providers: FC<TProvidersProps> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ProfileProvider>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </ProfileProvider>
       <Toaster richColors position="top-right" />
     </QueryClientProvider>

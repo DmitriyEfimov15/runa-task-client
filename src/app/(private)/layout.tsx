@@ -12,9 +12,7 @@ export default function Layout({
       <AppSidebar />
       <SidebarInset>
         <SiteHeader />
-        <div className="p-2 h-full">
-          {children}
-        </div>
+        <div className="p-2 h-full">{children}</div>
       </SidebarInset>
     </SidebarProvider>
   );

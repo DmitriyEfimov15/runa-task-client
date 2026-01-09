@@ -37,10 +37,7 @@ export const OtpForm: FC<OtpFormProps> = ({
   });
 
   return (
-    <form
-      onSubmit={handleSubmit(({ code }) => onSubmit(code))}
-      className="space-y-4"
-    >
+    <form onSubmit={handleSubmit(({ code }) => onSubmit(code))} className="space-y-4">
       <Controller
         name="code"
         control={control}
@@ -62,12 +59,7 @@ export const OtpForm: FC<OtpFormProps> = ({
         )}
       />
 
-      <Button
-        type="submit"
-        loading={loading}
-        disabled={!isValid}
-        className="w-full"
-      >
+      <Button type="submit" loading={loading} disabled={!isValid} className="w-full">
         {submitText}
       </Button>
     </form>

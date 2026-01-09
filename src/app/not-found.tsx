@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { PRIVATE_ROUTES } from "../shared/constants/routes/private/routes";
@@ -8,9 +8,7 @@ export default function NotFound() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
       <h1 className="text-7xl font-bold text-primary">404</h1>
 
-      <h2 className="mt-4 text-2xl font-semibold text-foreground">
-        Страница не найдена
-      </h2>
+      <h2 className="mt-4 text-2xl font-semibold text-foreground">Страница не найдена</h2>
 
       <p className="mt-2 max-w-md text-muted-foreground">
         Возможно, страница была удалена, переименована или вы перешли по неверной ссылке.

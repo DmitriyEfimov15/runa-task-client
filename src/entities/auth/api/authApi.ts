@@ -73,23 +73,23 @@ export const requestChangeEmail = (data: TRequestChangeEmailForm) => {
 export const changeEmail = (data: IOtpFormValues) => {
   return fetchClient<IResponseWithNotification>("/auth/change-email", {
     method: "POST",
-    body: JSON.stringify(data)
-  })
-}
+    body: JSON.stringify(data),
+  });
+};
 
 export const changePasswordForAuthorized = (data: TChangePasswordForAuthorizedForm) => {
   return fetchClient<IResponseWithNotification>("/auth/change-password-for-authorized", {
     method: "PATCH",
-    body: JSON.stringify(data)
-  })
-}
+    body: JSON.stringify(data),
+  });
+};
 
 export const changeAvatar = (data: TChangeAvatar) => {
-  const formData = new FormData()
-  formData.append("avatar", data.avatar)
+  const formData = new FormData();
+  formData.append("avatar", data.avatar);
 
   return fetchClient<IResponseWithNotification>("/user/avatar", {
     method: "POST",
     body: formData,
-  })
-}
+  });
+};

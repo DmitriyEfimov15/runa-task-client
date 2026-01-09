@@ -1,4 +1,4 @@
 export type TRequestChangeEmailForm = {
-    email: string
-    currentPassword: string
-}
+  email: string;
+  currentPassword: string;
+};

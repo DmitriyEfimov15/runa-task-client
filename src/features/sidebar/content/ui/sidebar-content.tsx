@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   SidebarGroup,
@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 const SidebarMainContent: FC<
   TSidebarMainContentProps & React.ComponentPropsWithoutRef<typeof SidebarGroup>
 > = ({ items, ...props }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>

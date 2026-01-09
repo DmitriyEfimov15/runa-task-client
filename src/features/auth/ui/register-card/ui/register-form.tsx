@@ -61,7 +61,7 @@ const RegisterForm: FC = () => {
           })}
           className={cn(errors.confirmPassword && "border-red-500")}
         />
-        {errors.confirmPassword && <FormError message={errors.confirmPassword.message ?? ''} />}
+        {errors.confirmPassword && <FormError message={errors.confirmPassword.message ?? ""} />}
       </div>
       <Button
         loading={registerMethod.isPending}

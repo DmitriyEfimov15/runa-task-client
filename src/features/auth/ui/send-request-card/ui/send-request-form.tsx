@@ -30,9 +30,7 @@ const SendRequestForm: FC = () => {
           {...register("email", { required: true })}
           className={cn(errors.email && "border-red-500")}
         />
-        {errors.email && (
-          <FormError message={errors.email.message || "Это поле обязательное"} />
-        )}
+        {errors.email && <FormError message={errors.email.message || "Это поле обязательное"} />}
       </div>
       <Button
         loading={sendRequestMethod.isPending}

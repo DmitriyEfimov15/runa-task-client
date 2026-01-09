@@ -1,3 +1,3 @@
 export const PUBLIC_ROUTES = {
-    AUTH: "/auth",
-}
+  AUTH: "/auth",
+};

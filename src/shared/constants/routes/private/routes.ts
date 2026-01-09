@@ -9,18 +9,18 @@ export const PRIVATE_ROUTES = {
   },
   DESK: {
     path: "/desk",
-    title: "Доска"
+    title: "Доска",
   },
   CALENDAR: {
     path: "/calendar",
-    title: "Календарь"
+    title: "Календарь",
   },
   REPORTS: {
     path: "/reports",
-    title: "Отчеты"
+    title: "Отчеты",
   },
   SETTINGS: {
     path: "/settings",
-    title: "Настройки"
-  }
+    title: "Настройки",
+  },
 } as const;

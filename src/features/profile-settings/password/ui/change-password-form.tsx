@@ -22,7 +22,7 @@ const ChangePasswordForm: FC<TChangePasswordFormProps> = ({ isLoading, onSubmit 
   } = useForm<TChangePasswordForAuthorizedForm>({
     mode: "onChange",
   });
-  const router = useRouter()
+  const router = useRouter();
 
   const newPassword = watch("newPassword");
   const handleFormSubmit = async (data: TChangePasswordForAuthorizedForm) => {

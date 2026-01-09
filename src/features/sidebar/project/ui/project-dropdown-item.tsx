@@ -1,6 +1,11 @@
 "use client";
 
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/src/shared/ui/sidebar";
+import {
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar,
+} from "@/src/shared/ui/sidebar";
 import { FC } from "react";
 import ProjectInfo from "./project-info";
 import {

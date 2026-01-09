@@ -1,3 +1,3 @@
 export interface IToasterStoreState {
-    showToaster: (message: string, status: number) => void;
+  showToaster: (message: string, status: number) => void;
 }

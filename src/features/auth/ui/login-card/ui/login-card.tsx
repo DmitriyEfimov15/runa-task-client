@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/src/shared/ui/card";
 import { FC } from "react";

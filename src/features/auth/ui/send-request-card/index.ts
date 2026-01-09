@@ -1,1 +1,1 @@
-export {default as SendRequestCard} from "./ui/send-request-card";   
+export { default as SendRequestCard } from "./ui/send-request-card";

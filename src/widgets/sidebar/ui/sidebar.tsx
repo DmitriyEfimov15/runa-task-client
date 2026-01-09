@@ -1,6 +1,9 @@
 "use client";
 
-import { SIDEBAR_CONTENT_ITEMS, SIDEBAR_SECONDARY_CONTENT_ITEMS } from "@/src/features/sidebar/content/models/sidebar-content";
+import {
+  SIDEBAR_CONTENT_ITEMS,
+  SIDEBAR_SECONDARY_CONTENT_ITEMS,
+} from "@/src/features/sidebar/content/models/sidebar-content";
 import SidebarMainContent from "@/src/features/sidebar/content/ui/sidebar-content";
 import ProfileDropdownItem from "@/src/features/sidebar/profile/ui/profile-dropdown-item";
 import ProjectDropdownItem from "@/src/features/sidebar/project/ui/project-dropdown-item";

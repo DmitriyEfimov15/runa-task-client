@@ -14,7 +14,7 @@ const PasswordRequirements: FC<Props> = ({ value }) => {
     <div
       className={clsx(
         "overflow-hidden transition-all duration-300 ease-in-out",
-        isVisible ? "max-h-40 opacity-100 mt-2" : "max-h-0 opacity-0"
+        isVisible ? "max-h-40 opacity-100 mt-2" : "max-h-0 opacity-0",
       )}
     >
       <ul className="space-y-1 text-sm">
@@ -26,14 +26,10 @@ const PasswordRequirements: FC<Props> = ({ value }) => {
               key={req.key}
               className={clsx(
                 "flex items-center gap-2 transition-colors",
-                isValid ? "text-green-600" : "text-gray-400"
+                isValid ? "text-green-600" : "text-gray-400",
               )}
             >
-              {isValid ? (
-                <CheckCircle2 size={16} />
-              ) : (
-                <Circle size={16} />
-              )}
+              {isValid ? <CheckCircle2 size={16} /> : <Circle size={16} />}
               <span>{req.label}</span>
             </li>
           );

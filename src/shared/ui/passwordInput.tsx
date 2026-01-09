@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Input } from "@/src/shared/ui/input";
 import { FC, useState } from "react";
