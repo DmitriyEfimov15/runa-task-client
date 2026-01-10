@@ -33,7 +33,6 @@ RUN npm ci --omit=dev
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/next.config.js ./next.config.js
 
 # Если используешь environment переменные для Next
 ENV NODE_ENV=production
