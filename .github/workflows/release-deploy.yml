@@ -69,6 +69,7 @@ jobs:
       REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
       DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
       VERSION: ${{ needs.build-and-push.outputs.plain_version }}
+      NEXT_PUBLIC_API_BASE_URL: ${{secrets.NEXT_PUBLIC_API_BASE_URL}}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -105,6 +106,7 @@ jobs:
             DEPLOY_DIR="${{ env.DEPLOY_DIR }}"
             REGISTRY_URL="${{ env.REGISTRY_URL }}"
             REGISTRY_REPO="${{ env.REGISTRY_REPO }}"
+            NEXT_PUBLIC_API_BASE_URL="${{ env.NEXT_PUBLIC_API_BASE_URL }}"
             VERSION="${{ needs.build-and-push.outputs.plain_version }}"
 
             cd "$DEPLOY_DIR"
@@ -114,6 +116,7 @@ jobs:
             echo "REGISTRY_URL=${REGISTRY_URL}" > .env
             echo "REGISTRY_REPO=${REGISTRY_REPO}" >> .env
             echo "VERSION=${VERSION}" >> .env
+            echo "NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}" >> .env
 
             docker login ${{ env.REGISTRY_URL }} -u ${{ env.REGISTRY_USER }} -p ${{ env.REGISTRY_TOKEN }}
             export $(grep -v '^#' .env | xargs)
