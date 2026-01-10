@@ -5,8 +5,10 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
+    networks:
+      - edge
 
   nginx:
     image: nginx:alpine
@@ -16,3 +18,9 @@ services:
       - "80:80"
     depends_on:
       - web
+    networks:
+      - edge
+
+networks:
+  edge:
+    external: true
