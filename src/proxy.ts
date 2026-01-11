@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { PUBLIC_ROUTES } from "./shared/constants/routes/public/routes";
 import { protectAuthPages } from "./entities/auth/server-actions/middlewares/protect-auth.middleware";
 import { protectPrivatePages } from "./entities/auth/server-actions/middlewares/protect-private.middleware";
+import { API_URL } from "./shared/constants/server";
 
 export async function proxy(request: NextRequest): Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
@@ -9,6 +10,7 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
     return protectAuthPages(request);
   }
 
+      console.log(API_URL)
   return protectPrivatePages(request);
 }
 
