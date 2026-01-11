@@ -27,6 +27,7 @@ export const fetchClient = async <T>(url: string, options?: RequestInit): Promis
       if (!refreshRes.ok) {
         throw new Error("Сессия истекла");
       }
+      console.log(API_URL)
 
       response = await fetch(`${API_URL}${url}`, {
         credentials: "include",

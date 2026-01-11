@@ -117,6 +117,7 @@ jobs:
             echo "REGISTRY_REPO=${REGISTRY_REPO}" >> .env
             echo "VERSION=${VERSION}" >> .env
             echo "NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}" >> .env
+            echo "ACCESS_SECRET_KEY=${ACCESS_SECRET_KEY}" >> .env
 
             docker login ${{ env.REGISTRY_URL }} -u ${{ env.REGISTRY_USER }} -p ${{ env.REGISTRY_TOKEN }}
             export $(grep -v '^#' .env | xargs)
