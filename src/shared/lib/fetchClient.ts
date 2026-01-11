@@ -49,7 +49,6 @@ export const fetchClient = async <T>(url: string, options?: RequestInit): Promis
 
     return data as T;
   } catch (err) {
-    console.log(API_URL)
     throw err;
   }
 };
