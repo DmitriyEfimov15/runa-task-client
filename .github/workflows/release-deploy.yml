@@ -70,6 +70,7 @@ jobs:
       DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
       VERSION: ${{ needs.build-and-push.outputs.plain_version }}
       NEXT_PUBLIC_API_BASE_URL: ${{secrets.NEXT_PUBLIC_API_BASE_URL}}
+      ACCESS_SECRET_KEY: ${{secrets.ACCESS_SECRET_KEY}}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -107,6 +108,7 @@ jobs:
             REGISTRY_URL="${{ env.REGISTRY_URL }}"
             REGISTRY_REPO="${{ env.REGISTRY_REPO }}"
             NEXT_PUBLIC_API_BASE_URL="${{ env.NEXT_PUBLIC_API_BASE_URL }}"
+            ACCESS_SECRET_KEY="${{ env.ACCESS_SECRET_KEY }}"
             VERSION="${{ needs.build-and-push.outputs.plain_version }}"
 
             cd "$DEPLOY_DIR"
