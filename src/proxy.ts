@@ -10,7 +10,6 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
     return protectAuthPages(request);
   }
 
-      console.log(API_URL)
   return protectPrivatePages(request);
 }
 

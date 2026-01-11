@@ -9,6 +9,12 @@ WORKDIR /app
 # Копируем package.json и package-lock.json / yarn.lock
 COPY package*.json ./
 
+ARG NEXT_PUBLIC_API_BASE_URL
+ARG NEXT_PUBLIC_ACCESS_SECRET_KEY
+
+ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+ENV NEXT_PUBLIC_ACCESS_SECRET_KEY=$NEXT_PUBLIC_ACCESS_SECRET_KEY
+
 # Устанавливаем зависимости
 RUN npm ci
 
