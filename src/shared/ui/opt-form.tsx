@@ -3,12 +3,7 @@
 import { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/src/shared/ui/button";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "@/src/shared/ui/input-otp";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/src/shared/ui/input-otp";
 
 export interface IOtpFormValues {
   code: string;
@@ -47,12 +42,9 @@ export const OtpForm: FC<OtpFormProps> = ({
         }}
         render={({ field }) => (
           <InputOTP maxLength={length} value={field.value} onChange={field.onChange}>
-            <InputOTPGroup>
+            <InputOTPGroup className="gap-2.5 *:data-[slot=input-otp-slot]:rounded-md *:data-[slot=input-otp-slot]:border">
               {Array.from({ length }).map((_, index) => (
-                <span key={index} className="flex items-center">
-                  {index !== 0 && <InputOTPSeparator />}
-                  <InputOTPSlot index={index} />
-                </span>
+                <InputOTPSlot key={index} index={index} />
               ))}
             </InputOTPGroup>
           </InputOTP>
