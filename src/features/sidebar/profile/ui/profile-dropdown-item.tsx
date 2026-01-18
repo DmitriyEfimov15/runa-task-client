@@ -60,10 +60,12 @@ const ProfileDropdownItem = () => {
               <ProfileInfo user={user} />
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => router.push(PRIVATE_ROUTES.PROFILE.path)}>
-              <UserCircle2 className="mr-2 h-4 w-4" />
-              {PRIVATE_ROUTES.PROFILE.title}
-            </DropdownMenuItem>
+            <SidebarMenuButton asChild>
+              <DropdownMenuItem onClick={() => router.push(PRIVATE_ROUTES.PROFILE.path)}>
+                <UserCircle2 className="mr-2 h-4 w-4" />
+                {PRIVATE_ROUTES.PROFILE.title}
+              </DropdownMenuItem>
+            </SidebarMenuButton>
             <DropdownMenuItem onClick={handleLogout}>
               <LogOut className="mr-2 h-4 w-4" />
               Выйти
